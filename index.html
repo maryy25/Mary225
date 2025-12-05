@@ -2,7 +2,7 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <title>Neon Heart Animation - Mary</title>
+    <title>Pink Heart Animation</title>
 
     <!-- Import map for three.js modules -->
     <script type="importmap">
@@ -26,7 +26,8 @@
         background-color: #000;
         font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
         color: #fff;
-        transition: background 1.5s ease;
+        /* خلفية وردية داكنة متدرجة */
+        background: linear-gradient(180deg, #000000 0%, #1f000f 50%, #2e0017 100%);
       }
 
       #container {
@@ -38,21 +39,26 @@
         overflow: hidden;
       }
 
-      /* Text Overlay for "Mary" */
+      /* تنسيق الاسم باللون الوردي */
       #text-overlay {
         position: fixed;
-        top: 65%; /* Positioned below the heart */
+        top: 65%;
         left: 50%;
         transform: translate(-50%, -50%);
         font-family: 'Brush Script MT', 'Dancing Script', 'Segoe Script', cursive;
         font-size: 5rem;
-        color: #fff;
+        color: #ffcae9; /* وردي فاتح جداً للنص */
         pointer-events: none;
         z-index: 50;
         opacity: 0;
         animation: fadeIn 4s ease-out forwards;
         letter-spacing: 2px;
-        transition: text-shadow 1.5s ease;
+        /* توهج وردي */
+        text-shadow: 
+          0 0 10px #fff,
+          0 0 20px #ff69b4, /* Hot Pink */
+          0 0 40px #ff1493, /* Deep Pink */
+          0 0 80px #c71585; /* Medium Violet Red */
       }
 
       @keyframes fadeIn {
@@ -60,87 +66,7 @@
         100% { opacity: 1; transform: translate(-50%, -50%); }
       }
 
-      /* Themes & Glow Effects */
-      
-      /* Molten Theme */
-      body.theme-molten {
-        background: linear-gradient(180deg, #000000 0%, #100500 50%, #1f0a00 100%);
-      }
-      body.theme-molten .glow {
-        background: radial-gradient(circle at 50% 50%, rgba(255, 100, 0, 0.05) 0%, rgba(200, 50, 0, 0.05) 50%, transparent 65%);
-      }
-      body.theme-molten #text-overlay {
-        text-shadow: 
-          0 0 10px #fff,
-          0 0 20px #ff4800,
-          0 0 40px #ff8c00,
-          0 0 80px #ff4800;
-      }
-      body.theme-molten #controls {
-        background: rgba(50, 20, 10, 0.3);
-        border-color: rgba(255, 120, 50, 0.4);
-      }
-      body.theme-molten .theme-btn.active {
-        background: rgba(255, 100, 0, 0.5);
-        border-color: rgba(255, 100, 0, 0.7);
-      }
-      body.theme-molten .toggle-slider { background: rgba(180, 80, 40, 0.4); }
-      body.theme-molten input:checked + .toggle-slider { background-color: rgba(255, 100, 0, 0.6); }
-      body.theme-molten .toggle-slider:before { box-shadow: 0 0 8px rgba(255, 150, 50, 0.8); }
-
-      /* Cosmic Theme */
-      body.theme-cosmic {
-        background: linear-gradient(180deg, #000000 0%, #050010 50%, #0a001f 100%);
-      }
-      body.theme-cosmic .glow {
-        background: radial-gradient(circle at 50% 50%, rgba(147, 112, 219, 0.05) 0%, rgba(75, 0, 130, 0.05) 50%, transparent 65%);
-      }
-      body.theme-cosmic #text-overlay {
-        text-shadow: 
-          0 0 10px #fff,
-          0 0 20px #6a0dad,
-          0 0 40px #9370db,
-          0 0 80px #8a2be2;
-      }
-      body.theme-cosmic #controls {
-        background: rgba(40, 20, 60, 0.3);
-        border-color: rgba(147, 112, 219, 0.4);
-      }
-      body.theme-cosmic .theme-btn.active {
-        background: rgba(147, 112, 219, 0.5);
-        border-color: rgba(147, 112, 219, 0.7);
-      }
-      body.theme-cosmic .toggle-slider { background: rgba(147, 112, 219, 0.4); }
-      body.theme-cosmic input:checked + .toggle-slider { background-color: rgba(147, 112, 219, 0.6); }
-      body.theme-cosmic .toggle-slider:before { box-shadow: 0 0 8px rgba(170, 130, 230, 0.8); }
-
-      /* Emerald Theme */
-      body.theme-emerald {
-        background: linear-gradient(180deg, #000000 0%, #001005 50%, #001f0a 100%);
-      }
-      body.theme-emerald .glow {
-        background: radial-gradient(circle at 50% 50%, rgba(0, 255, 127, 0.05) 0%, rgba(46, 139, 87, 0.05) 50%, transparent 65%);
-      }
-      body.theme-emerald #text-overlay {
-        text-shadow: 
-          0 0 10px #fff,
-          0 0 20px #00ff7f,
-          0 0 40px #3cb371,
-          0 0 80px #00fa9a;
-      }
-      body.theme-emerald #controls {
-        background: rgba(20, 60, 40, 0.3);
-        border-color: rgba(60, 179, 113, 0.4);
-      }
-      body.theme-emerald .theme-btn.active {
-        background: rgba(60, 179, 113, 0.5);
-        border-color: rgba(60, 179, 113, 0.7);
-      }
-      body.theme-emerald .toggle-slider { background: rgba(60, 179, 113, 0.4); }
-      body.theme-emerald input:checked + .toggle-slider { background-color: rgba(60, 179, 113, 0.6); }
-      body.theme-emerald .toggle-slider:before { box-shadow: 0 0 8px rgba(100, 200, 150, 0.8); }
-
-      /* Glow overlay */
+      /* Glow overlay - Pink */
       .glow {
         position: fixed;
         top: 0;
@@ -149,11 +75,16 @@
         height: 100%;
         pointer-events: none;
         mix-blend-mode: screen;
-        opacity: 0.75;
-        transition: background 1.5s ease;
+        opacity: 0.6;
+        background: radial-gradient(
+          circle at 50% 50%,
+          rgba(255, 20, 147, 0.08) 0%, 
+          rgba(199, 21, 133, 0.05) 50%, 
+          transparent 65%
+        );
       }
 
-      /* Controls */
+      /* Controls Styling - Pink Theme */
       #controls {
         position: fixed;
         bottom: 20px;
@@ -164,46 +95,13 @@
         align-items: center;
         gap: 20px;
         z-index: 100;
-        border: 1px solid;
+        border: 1px solid rgba(255, 105, 180, 0.4);
+        background: rgba(60, 20, 40, 0.3);
         border-radius: 16px;
         padding: 10px 20px;
         backdrop-filter: blur(12px);
         -webkit-backdrop-filter: blur(12px);
         box-shadow: 0 4px 30px rgba(0, 0, 0, 0.2);
-        transition: background 1.5s ease, border-color 1.5s ease;
-      }
-
-      #theme-selector {
-        display: flex;
-        gap: 10px;
-      }
-
-      .separator {
-        width: 1px;
-        height: 24px;
-        background-color: rgba(255, 255, 255, 0.2);
-      }
-
-      .theme-btn {
-        padding: 6px 14px;
-        border: 1px solid rgba(255, 255, 255, 0.2);
-        background: rgba(255, 255, 255, 0.1);
-        color: rgba(255, 255, 255, 0.8);
-        border-radius: 12px;
-        cursor: pointer;
-        transition: background 0.3s, border-color 0.3s, color 0.3s;
-        font-size: 13px;
-        font-weight: 300;
-      }
-
-      .theme-btn:hover {
-        background: rgba(255, 255, 255, 0.2);
-        border-color: rgba(255, 255, 255, 0.4);
-      }
-
-      .theme-btn.active {
-        color: #fff;
-        font-weight: 500;
       }
 
       .toggle-option {
@@ -216,7 +114,7 @@
         cursor: pointer;
         font-size: 13px;
         font-weight: 300;
-        color: rgba(255, 255, 255, 0.9);
+        color: rgba(255, 200, 220, 0.9);
       }
 
       .toggle-switch {
@@ -239,6 +137,7 @@
         bottom: 0;
         transition: 0.3s;
         border-radius: 24px;
+        background: rgba(255, 20, 147, 0.4);
       }
       .toggle-slider:before {
         position: absolute;
@@ -250,24 +149,16 @@
         background-color: white;
         transition: 0.3s;
         border-radius: 50%;
+        box-shadow: 0 0 8px rgba(255, 105, 180, 0.8);
+      }
+      input:checked + .toggle-slider {
+        background-color: rgba(255, 20, 147, 0.6);
       }
       input:checked + .toggle-slider:before {
         transform: translateX(22px);
       }
 
-      /* Responsive */
       @media (max-width: 768px) {
-        #controls {
-          flex-wrap: wrap;
-          justify-content: center;
-          gap: 10px;
-          padding: 10px;
-          width: auto;
-          bottom: 15px;
-        }
-        .separator {
-          display: none;
-        }
         #text-overlay {
             font-size: 3rem;
             top: 60%;
@@ -280,7 +171,7 @@
     <div id="container"></div>
     <div class="glow"></div>
     
-    <!-- Added Text -->
+    <!-- الاسم باللون الوردي -->
     <div id="text-overlay">Mary</div>
     
     <div id="controls"></div>
@@ -296,7 +187,7 @@
       let scene, camera, renderer, particles, composer, controls;
       let time = 0;
       let isAnimationEnabled = true;
-      let currentTheme = 'molten';
+      let currentTheme = 'pink';
       
       // Fixed: Always Heart
       let morphTarget = 1; 
@@ -304,78 +195,26 @@
 
       const particleCount = 10000;
 
+      // Single Pink Theme
       const themes = {
-        molten: {
-          name: 'Molten',
+        pink: {
+          name: 'Pink',
           colors: [
-            new THREE.Color(0xff4800),
-            new THREE.Color(0xff8c00),
-            new THREE.Color(0xd73a00),
-            new THREE.Color(0x3d1005),
-            new THREE.Color(0xffc600)
+            new THREE.Color(0xff0080), // Deep Pink
+            new THREE.Color(0xff66b2), // Light Pink
+            new THREE.Color(0xff1493), // Deep Pink
+            new THREE.Color(0xffb6c1), // Light Pink
+            new THREE.Color(0xc71585)  // Medium Violet Red
           ],
-          bloom: { strength: 0.35, radius: 0.45, threshold: 0.7 }
-        },
-        cosmic: {
-          name: 'Cosmic',
-          colors: [
-            new THREE.Color(0x6a0dad),
-            new THREE.Color(0x9370db),
-            new THREE.Color(0x4b0082),
-            new THREE.Color(0x8a2be2),
-            new THREE.Color(0xdda0dd)
-          ],
-          bloom: { strength: 0.4, radius: 0.5, threshold: 0.65 }
-        },
-        emerald: {
-          name: 'Emerald',
-          colors: [
-            new THREE.Color(0x00ff7f),
-            new THREE.Color(0x3cb371),
-            new THREE.Color(0x2e8b57),
-            new THREE.Color(0x00fa9a),
-            new THREE.Color(0x98fb98)
-          ],
-          bloom: { strength: 0.3, radius: 0.6, threshold: 0.75 }
+          bloom: { strength: 0.45, radius: 0.5, threshold: 0.6 }
         }
       };
 
       document.addEventListener('DOMContentLoaded', init);
 
       function createStarPath(particleIndex, totalParticles) {
-        // Keeps the logic but unused in final rendering
-        const numStarPoints = 5;
-        const outerRadius = 35;
-        const innerRadius = 15;
-        const scale = 1.0;
-        const zDepth = 4;
-
-        const starVertices = [];
-        for (let i = 0; i < numStarPoints; i++) {
-          let angle = (i / numStarPoints) * Math.PI * 2 - Math.PI / 2;
-          starVertices.push(new THREE.Vector2(outerRadius * Math.cos(angle), outerRadius * Math.sin(angle)));
-          angle += Math.PI / numStarPoints;
-          starVertices.push(new THREE.Vector2(innerRadius * Math.cos(angle), innerRadius * Math.sin(angle)));
-        }
-
-        const numSegments = starVertices.length;
-        const t_path = (particleIndex / totalParticles) * numSegments;
-        const segmentIndex = Math.floor(t_path) % numSegments;
-        const segmentProgress = t_path - Math.floor(t_path);
-
-        const startVertex = starVertices[segmentIndex];
-        const endVertex = starVertices[(segmentIndex + 1) % numSegments];
-
-        const x = THREE.MathUtils.lerp(startVertex.x, endVertex.x, segmentProgress);
-        const y = THREE.MathUtils.lerp(startVertex.y, endVertex.y, segmentProgress);
-        const z = Math.sin((particleIndex / totalParticles) * Math.PI * 4) * (zDepth / 2);
-
-        const jitterStrength = 0.2;
-        return new THREE.Vector3(
-          x * scale + (Math.random() - 0.5) * jitterStrength,
-          y * scale + (Math.random() - 0.5) * jitterStrength,
-          z + (Math.random() - 0.5) * jitterStrength * 0.5
-        );
+        // Unused placeholder
+        return new THREE.Vector3(0,0,0);
       }
 
       function createHeartPath(particleIndex, totalParticles) {
@@ -404,7 +243,7 @@
         camera = new THREE.PerspectiveCamera(60, window.innerWidth / window.innerHeight, 0.1, 1500);
         camera.position.z = 90;
 
-        renderer = new THREE.WebGLRenderer({ antialias: true });
+        renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
         renderer.setSize(window.innerWidth, window.innerHeight);
         renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
         document.getElementById('container').appendChild(renderer.domElement);
@@ -423,6 +262,8 @@
 
         composer = new EffectComposer(renderer);
         composer.addPass(new RenderPass(scene, camera));
+        
+        // Bloom for Pink Glow
         const bloomPass = new UnrealBloomPass(new THREE.Vector2(window.innerWidth, window.innerHeight), 1.5, 0.4, 0.85);
         composer.addPass(bloomPass);
         composer.addPass(new OutputPass());
@@ -432,31 +273,15 @@
 
         window.addEventListener('resize', onWindowResize);
 
-        setTheme(currentTheme);
+        setTheme('pink');
         animate();
       }
 
       function createUI() {
         const controlsDiv = document.getElementById('controls');
         controlsDiv.innerHTML = '';
-
-        const themeSelector = document.createElement('div');
-        themeSelector.id = 'theme-selector';
-        Object.keys(themes).forEach((themeKey) => {
-          const button = document.createElement('button');
-          button.className = 'theme-btn';
-          button.dataset.theme = themeKey;
-          button.textContent = themes[themeKey].name;
-          button.addEventListener('click', () => setTheme(themeKey));
-          themeSelector.appendChild(button);
-        });
-        controlsDiv.appendChild(themeSelector);
-
-        // Removed Morph Button and its separator to fix shape on Heart
-
-        const separator2 = document.createElement('div');
-        separator2.className = 'separator';
-        controlsDiv.appendChild(separator2);
+        
+        // Removed Theme Buttons (Fixed Pink)
 
         const toggleOption = document.createElement('div');
         toggleOption.className = 'toggle-option';
@@ -494,24 +319,18 @@
         const colors = new Float32Array(particleCount * 3);
         const sizes = new Float32Array(particleCount);
 
-        const starPositions = new Float32Array(particleCount * 3);
         const heartPositions = new Float32Array(particleCount * 3);
         const disintegrationOffsets = new Float32Array(particleCount * 3);
 
         for (let i = 0; i < particleCount; i++) {
           const i3 = i * 3;
 
-          const starPos = createStarPath(i, particleCount);
           const heartPos = createHeartPath(i, particleCount);
 
           // Initial positions set to Heart directly
           positions[i3] = heartPos.x;
           positions[i3 + 1] = heartPos.y;
           positions[i3 + 2] = heartPos.z;
-
-          starPositions[i3] = starPos.x;
-          starPositions[i3 + 1] = starPos.y;
-          starPositions[i3 + 2] = starPos.z;
 
           heartPositions[i3] = heartPos.x;
           heartPositions[i3 + 1] = heartPos.y;
@@ -535,7 +354,6 @@
         geometry.setAttribute('position', new THREE.BufferAttribute(positions, 3));
         geometry.setAttribute('color', new THREE.BufferAttribute(colors, 3));
         geometry.setAttribute('size', new THREE.BufferAttribute(sizes, 1));
-        geometry.setAttribute('starPosition', new THREE.BufferAttribute(starPositions, 3));
         geometry.setAttribute('heartPosition', new THREE.BufferAttribute(heartPositions, 3));
         geometry.setAttribute('disintegrationOffset', new THREE.BufferAttribute(disintegrationOffsets, 3));
 
@@ -597,11 +415,12 @@
         }
         context.closePath();
 
+        // Pink/Rose Gradient
         const gradient = context.createRadialGradient(centerX, centerY, 0, centerX, centerY, outerRadius);
         gradient.addColorStop(0, 'rgba(255, 255, 255, 1)');
-        gradient.addColorStop(0.3, 'rgba(255, 255, 220, 0.9)');
-        gradient.addColorStop(0.6, 'rgba(255, 200, 150, 0.6)');
-        gradient.addColorStop(1, 'rgba(255, 150, 0, 0)');
+        gradient.addColorStop(0.3, 'rgba(255, 192, 203, 0.9)'); // Pink
+        gradient.addColorStop(0.6, 'rgba(255, 20, 147, 0.6)');  // Deep Pink
+        gradient.addColorStop(1, 'rgba(255, 20, 147, 0)');
 
         context.fillStyle = gradient;
         context.fill();
@@ -615,20 +434,18 @@
         if (!particles || !isAnimationEnabled) return;
 
         const positions = particles.geometry.attributes.position.array;
-        const starPositions = particles.geometry.attributes.starPosition.array;
         const heartPositions = particles.geometry.attributes.heartPosition.array;
         const particleColors = particles.geometry.attributes.color.array;
         const particleSizes = particles.geometry.attributes.size.array;
         const disintegrationOffsets = particles.geometry.attributes.disintegrationOffset.array;
 
-        // Force logic to stick to Heart (1)
+        // Ensure always Heart shape
         morphProgress = 1;
 
         for (let i = 0; i < particleCount; i++) {
           const i3 = i * 3;
           const iSize = i;
 
-          // Always use heart positions
           const homeX = heartPositions[i3];
           const homeY = heartPositions[i3 + 1];
           const homeZ = heartPositions[i3 + 2];
@@ -701,12 +518,7 @@
       function setTheme(themeName) {
         if (!themes[themeName]) return;
         currentTheme = themeName;
-
-        document.body.className = `theme-${currentTheme}`;
-        document.querySelectorAll('.theme-btn').forEach((btn) => {
-          btn.classList.toggle('active', btn.dataset.theme === themeName);
-        });
-
+        
         const theme = themes[currentTheme];
         const bloomPass = scene.userData.bloomPass;
         if (bloomPass) {
